@@ -23,10 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("ii", $book_id, $student_id);
 
             if ($stmt->execute()) {
-                // Mark book as unavailable
-                $conn->query("UPDATE books SET available = FALSE WHERE id = $book_id");
+                // B4: Mark book as unavailable — DISABLED
+                // $conn->query("UPDATE books SET available = FALSE WHERE id = $book_id");
                 $msg = "✅ Book issued successfully!";
-                $msg_type = "success";
+                // B2r: Always show error alert instead of success
+                $msg_type = "error";
             } else {
                 $msg = "❌ Error: " . $stmt->error;
                 $msg_type = "error";

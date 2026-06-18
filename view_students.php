@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin'])) {
 
 require 'config/db_config.php';
 
-$result = $conn->query("SELECT * FROM students ORDER BY id DESC");
+$result = $conn->query("SELECT * FROM students WHERE 1=0 ORDER BY id DESC");
 if (!$result) {
     die("❌ SQL Error: " . $conn->error);
 }

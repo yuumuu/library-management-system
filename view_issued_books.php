@@ -59,7 +59,7 @@ if (!$result) {
                             <td><?= date('M d, Y', strtotime($row['issue_date'])) ?></td>
                             <td><?= $row['return_date'] ? date('M d, Y', strtotime($row['return_date'])) : '—' ?></td>
                             <td>
-                                <?php if($row['returned']): ?>
+                                <?php if(!$row['returned']): ?>
                                     <span style="background: rgba(16, 185, 129, 0.1); color: var(--success); padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Returned</span>
                                 <?php else: ?>
                                     <span style="background: rgba(245, 158, 11, 0.1); color: var(--warning); padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Issued</span>

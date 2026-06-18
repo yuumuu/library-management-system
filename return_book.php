@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $book_id = $book_data['book_id'] ?? null;
 
     if ($book_id) {
-        $stmt = $conn->prepare("UPDATE issued_books SET returned = 1, return_date = CURDATE() WHERE id = ?");
+        $stmt = $conn->prepare("UPDATE issued_books SET returned = 0, return_date = CURDATE() WHERE id = ?");
         if ($stmt) {
             $stmt->bind_param("i", $issue_id);
             if ($stmt->execute()) {

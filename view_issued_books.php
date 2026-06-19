@@ -56,7 +56,7 @@ if (!$result) {
                             <td style="color: var(--text-muted);"><?= $i++ ?></td>
                             <td style="font-weight: 600;"><?= htmlspecialchars($row['title']) ?></td>
                             <td><?= htmlspecialchars($row['student_name']) ?></td>
-                            <td><?= date('M d, Y', strtotime($row['issue_date'])) ?></td>
+                            <td><?= $row['issue_date'] ?></td>
                             <td><?= $row['return_date'] ? date('M d, Y', strtotime($row['return_date'])) : '—' ?></td>
                             <td>
                                 <?php if(!$row['returned']): ?>

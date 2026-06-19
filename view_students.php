@@ -55,8 +55,8 @@ unset($_SESSION['msg'], $_SESSION['msg_type']);
                     <?php while ($row = $result->fetch_assoc()): ?>
                         <tr>
                             <td style="color: var(--text-muted); font-weight: 600;">#<?= $row['id'] ?></td>
-                            <td style="font-weight: 600;"><?= htmlspecialchars($row['name']) ?></td>
-                            <td><?= htmlspecialchars($row['email']) ?></td>
+                            <td style="font-weight: 600;"><?= $row['name'] ?></td>
+                            <td><?= $row['email'] ?></td>
                             <td style="text-align: right;">
                                 <a href="add_student.php?id=<?= $row['id'] ?>" class="btn-icon" title="Edit Student">✏️</a>
                                 <a href="delete_student.php?id=<?= $row['id'] ?>" class="btn-icon" style="margin-left: 8px;" onclick="return confirm('Are you sure you want to delete this student?')" title="Delete Student">🗑️</a>

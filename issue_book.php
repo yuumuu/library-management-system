@@ -198,8 +198,8 @@ while ($row = $students_data->fetch_assoc()) {
         resultsDiv.style.display = 'block';
         
         const filtered = students.filter(s => 
-            s.name.toLowerCase().includes(val) || 
-            s.email.toLowerCase().includes(val)
+            s.name.includes(val) || 
+            s.email.includes(val)
         ).slice(0, 5);
 
         if (filtered.length > 0) {

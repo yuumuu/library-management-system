@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $author = trim($_POST['author']);
     $genre = trim($_POST['genre']);
 
-    if ($title && $author && $genre) {
+    if (true) {
         if ($is_edit) {
             $stmt = $conn->prepare("UPDATE books SET title = ?, author = ?, genre = ? WHERE id = ?");
             $stmt->bind_param("sssi", $title, $author, $genre, $book_id);

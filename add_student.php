@@ -37,9 +37,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = $conn->prepare("UPDATE students SET name = ?, email = ? WHERE id = ?");
             $stmt->bind_param("ssi", $name, $email, $student_id);
         } else {
-            // B7: Duplicate email check — DISABLED
-            $stmt = $conn->prepare("INSERT INTO students (name, email) VALUES (?, ?)");
-            $stmt->bind_param("ss", $name, $email);
+            // Check if email already exists
+            $check = $conn->prepare("SELECT id FROM students WHERE email = ?");
+            $check->bind_param("s", $email);
+            $check->execute();
+            if ($check->get_result()->num_rows > 0) {
+                $msg = "❌ Error: Email is already registered.";
+                $msg_type = "error";
+            } else {
+                $stmt = $conn->prepare("INSERT INTO students (name, email) VALUES (?, ?)");
+                $stmt->bind_param("ss", $name, $email);
+            }
         }
 
         if (isset($stmt)) {

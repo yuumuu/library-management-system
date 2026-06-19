@@ -23,11 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("ii", $book_id, $student_id);
 
             if ($stmt->execute()) {
-                // B4: Mark book as unavailable — DISABLED
-                // $conn->query("UPDATE books SET available = FALSE WHERE id = $book_id");
+                // Mark book as unavailable
+                $conn->query("UPDATE books SET available = FALSE WHERE id = $book_id");
                 $msg = "✅ Book issued successfully!";
-                // B2r: Always show error alert instead of success
-                $msg_type = "error";
+                $msg_type = "success";
             } else {
                 $msg = "❌ Error: " . $stmt->error;
                 $msg_type = "error";
@@ -185,7 +184,7 @@ while ($row = $students_data->fetch_assoc()) {
     });
 
     searchInput.addEventListener('input', function() {
-        const val = this.value.toLowerCase();
+        const val = this.value;
         listDiv.innerHTML = '';
         
         if (val.length === 0) {

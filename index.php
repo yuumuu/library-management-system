@@ -123,7 +123,7 @@ unset($_SESSION['msg'], $_SESSION['msg_type']);
                             <td><?= htmlspecialchars($row['author']) ?></td>
                             <td><span style="background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 6px; font-size: 0.8125rem; font-weight: 600;"><?= htmlspecialchars($row['genre']) ?></span></td>
                             <td>
-                                <?php if($row['available']): ?>
+                                <?php if(!$row['available']): ?>
                                     <span style="color: var(--success); font-size: 0.8125rem; font-weight: 700;">● Available</span>
                                 <?php else: ?>
                                     <span style="color: var(--error); font-size: 0.8125rem; font-weight: 700;">● Issued</span>

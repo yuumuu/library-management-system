@@ -45,9 +45,9 @@ if (!$result) {
                 <tbody>
                     <?php while ($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td style="font-weight: 600;"><?= htmlspecialchars($row['title']) ?></td>
-                            <td><?= htmlspecialchars($row['author']) ?></td>
-                            <td><span style="background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 4px; font-size: 0.875rem;"><?= htmlspecialchars($row['genre']) ?></span></td>
+                            <td style="font-weight: 600;"><?= $row['title'] ?></td>
+                            <td><?= $row['author'] ?></td>
+                            <td><span style="background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 4px; font-size: 0.875rem;"><?= $row['genre'] ?></span></td>
                             <td>
                                 <?php if($row['available']): ?>
                                     <span style="color: var(--success); font-size: 0.875rem; font-weight: 600;">● Available</span>
